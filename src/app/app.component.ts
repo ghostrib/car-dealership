@@ -15,7 +15,7 @@ export class AppComponent {
       color: 'Gray',
       price: 16106,
       hasSunroof: false,
-      isFourWheelDrive: true,
+      hasFourWheelDrive: true,
       hasLowMiles: true,
       hasPowerWindows: false,
       hasNavigation: true,
@@ -28,7 +28,7 @@ export class AppComponent {
       color: 'Silver',
       price: 18696,
       hasSunroof: true,
-      isFourWheelDrive: true,
+      hasFourWheelDrive: true,
       hasLowMiles: false,
       hasPowerWindows: true,
       hasNavigation: false,
@@ -41,7 +41,7 @@ export class AppComponent {
       color: 'Black',
       price: 18390,
       hasSunroof: true,
-      isFourWheelDrive: false,
+      hasFourWheelDrive: false,
       hasLowMiles: false,
       hasPowerWindows: true,
       hasNavigation: true,
@@ -54,7 +54,7 @@ export class AppComponent {
       color: 'White',
       price: 15895,
       hasSunroof: true,
-      isFourWheelDrive: false,
+      hasFourWheelDrive: false,
       hasLowMiles: true,
       hasPowerWindows: true,
       hasNavigation: false,
@@ -67,7 +67,7 @@ export class AppComponent {
       color: 'Gray',
       price: 19710,
       hasSunroof: false,
-      isFourWheelDrive: true,
+      hasFourWheelDrive: true,
       hasLowMiles: false,
       hasPowerWindows: false,
       hasNavigation: true,
@@ -80,7 +80,7 @@ export class AppComponent {
       color: 'Red',
       price: 19248,
       hasSunroof: true,
-      isFourWheelDrive: false,
+      hasFourWheelDrive: false,
       hasLowMiles: true,
       hasPowerWindows: true,
       hasNavigation: true,
@@ -93,7 +93,7 @@ export class AppComponent {
       color: 'Black',
       price: 13170,
       hasSunroof: true,
-      isFourWheelDrive: false,
+      hasFourWheelDrive: false,
       hasLowMiles: true,
       hasPowerWindows: true,
       hasNavigation: false,
@@ -106,7 +106,7 @@ export class AppComponent {
       color: 'Gray',
       price: 15669,
       hasSunroof: false,
-      isFourWheelDrive: false,
+      hasFourWheelDrive: false,
       hasLowMiles: true,
       hasPowerWindows: false,
       hasNavigation: false,
@@ -119,11 +119,79 @@ export class AppComponent {
       color: 'White',
       price: 16629,
       hasSunroof: false,
-      isFourWheelDrive: false,
+      hasFourWheelDrive: false,
       hasLowMiles: true,
       hasPowerWindows: false,
       hasNavigation: false,
       hasHeatedSeats: true
     }
   ];
+
+  hasSunroof = false;
+  hasFourWheelDrive = false;
+  hasLowMiles = false;
+  hasPowerWindows = false;
+  hasNavigation = false;
+  hasHeatedSeats = false;
+  colorSelected = null;
+
+  optionsSelected = [];
+
+  handleClick(e) {
+    this[e.target.name] = !this[e.target.name];
+    if (this[e.target.name]) {
+      this.optionsSelected.push(e.target.id)
+    } else {
+      const i = this.optionsSelected.indexOf(e.target.id);
+      this.optionsSelected.splice(i, 1);
+    }
+    console.log(this.optionsSelected)
+  }
+
+  handleSelectionChange(e) {
+    this.colorSelected = e.target.value;
+  }
+
+  getResults() {
+    const ids = [];
+    const results = [];
+    this.inventory.forEach(car => {
+      if (this.hasSunroof && car.hasSunroof && !ids.includes(car._id)) {
+        results.push(car);
+        ids.push(car._id);
+      }
+      if (this.hasFourWheelDrive && car.hasFourWheelDrive && !ids.includes(car._id)) {
+        results.push(car);
+        ids.push(car._id);
+      }
+      if (this.hasLowMiles && car.hasLowMiles && !ids.includes(car._id)) {
+        results.push(car);
+        ids.push(car._id);
+      }
+      if (this.hasPowerWindows && car.hasPowerWindows && !ids.includes(car._id)) {
+        results.push(car);
+        ids.push(car._id);
+      }
+      if (this.hasNavigation && car.hasNavigation && !ids.includes(car._id)) {
+        results.push(car);
+        ids.push(car._id);
+      }
+      if (this.hasHeatedSeats && car.hasHeatedSeats && !ids.includes(car._id)) {
+        results.push(car);
+        ids.push(car._id);
+      }
+      if (this.colorSelected && this.colorSelected === car.color && !ids.includes(car._id)) {
+        results.push(car);
+        ids.push(car._id);
+      }
+    });
+    return results;
+  }
+
+  handleSearch() {
+    const result = this.getResults();
+    result.forEach(car => {
+      console.log(car.make, car.year);
+    })
+  }
 }

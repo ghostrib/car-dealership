@@ -1,0 +1,19 @@
+.title {
+  padding: 5%;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+label {
+  padding-right: 10px;
+}
+
+.row {
+  background-color: gainsboro;
+  padding: 10%;
+}

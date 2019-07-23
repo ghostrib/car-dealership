@@ -20,7 +20,7 @@
             type="checkbox"
             name="hasSunroof"
             id="sunroof"
-            (click)="handleSunroofClicked($event)"
+            (click)="handleClick($event)"
           />
         </div>
 
@@ -28,9 +28,9 @@
           <label for="four-wheel-drive">Four Wheel Drive</label>
           <input
             type="checkbox"
-            name="four-wheel-drive"
+            name="hasFourWheelDrive"
             id="four-wheel-drive"
-            (click)="handleFourWheelDriveClicked()"
+            (click)="handleClick($event)"
           />
         </div>
 
@@ -38,9 +38,9 @@
           <label for="low-miles">Low Mileage</label>
           <input
             type="checkbox"
-            name="low-miles"
+            name="hasLowMiles"
             id="low-miles"
-            (click)="handleLowMilesClicked()"
+            (click)="handleClick($event)"
           />
         </div>
 
@@ -48,9 +48,9 @@
           <label for="power-windows">Power Windows</label>
           <input
             type="checkbox"
-            name="power-windows"
+            name="hasPowerWindows"
             id="power-windows"
-            (click)="handlePowerWindowsClicked()"
+            (click)="handleClick($event)"
           />
         </div>
 
@@ -58,9 +58,9 @@
           <label for="navigation">Navigation Included</label>
           <input
             type="checkbox"
-            name="navigation"
+            name="hasNavigation"
             id="navigation"
-            (click)="handleNavigationClicked()"
+            (click)="handleClick($event)"
           />
         </div>
 
@@ -68,9 +68,9 @@
           <label for="heated-seats">Heated Seats</label>
           <input
             type="checkbox"
-            name="heated-seats"
+            name="hasHeatedSeats"
             id="heated-seats"
-            (click)="handleHeatedSeatsClicked()"
+            (click)="handleClick($event)"
           />
         </div>
       </span>
