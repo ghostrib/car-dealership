@@ -13,7 +13,19 @@ label {
   padding-right: 10px;
 }
 
-.row {
+.main {
   background-color: gainsboro;
   padding: 10%;
+}
+
+.container {
+  margin-top: -100px;
+}
+
+.display {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  margin: 4px;
+  border: solid lightgrey 1px;
 }

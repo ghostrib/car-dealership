@@ -136,6 +136,7 @@ export class AppComponent {
   colorSelected = null;
 
   optionsSelected = [];
+  cars = null;
 
   handleClick(e) {
     this[e.target.name] = !this[e.target.name];
@@ -145,7 +146,6 @@ export class AppComponent {
       const i = this.optionsSelected.indexOf(e.target.id);
       this.optionsSelected.splice(i, 1);
     }
-    console.log(this.optionsSelected)
   }
 
   handleSelectionChange(e) {
@@ -189,9 +189,6 @@ export class AppComponent {
   }
 
   handleSearch() {
-    const result = this.getResults();
-    result.forEach(car => {
-      console.log(car.make, car.year);
-    })
+    this.cars = this.getResults()
   }
 }

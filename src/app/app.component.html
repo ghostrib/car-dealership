@@ -1,5 +1,5 @@
 <div class="app">
-  <div class="row">
+  <div class="row main">
     <div class="col-xs-12">
       <h3 class="title">Welcome to {{ title }}</h3>
 
@@ -16,67 +16,50 @@
       <span class="pull-left">
         <div>
           <label for="sunroof">Sunroof</label>
-          <input
-            type="checkbox"
-            name="hasSunroof"
-            id="sunroof"
-            (click)="handleClick($event)"
-          />
+          <input type="checkbox" name="hasSunroof" id="sunroof" (click)="handleClick($event)" />
         </div>
 
         <div>
           <label for="four-wheel-drive">Four Wheel Drive</label>
-          <input
-            type="checkbox"
-            name="hasFourWheelDrive"
-            id="four-wheel-drive"
-            (click)="handleClick($event)"
-          />
+          <input type="checkbox" name="hasFourWheelDrive" id="four-wheel-drive" (click)="handleClick($event)" />
         </div>
 
         <div>
           <label for="low-miles">Low Mileage</label>
-          <input
-            type="checkbox"
-            name="hasLowMiles"
-            id="low-miles"
-            (click)="handleClick($event)"
-          />
+          <input type="checkbox" name="hasLowMiles" id="low-miles" (click)="handleClick($event)" />
         </div>
 
         <div>
           <label for="power-windows">Power Windows</label>
-          <input
-            type="checkbox"
-            name="hasPowerWindows"
-            id="power-windows"
-            (click)="handleClick($event)"
-          />
+          <input type="checkbox" name="hasPowerWindows" id="power-windows" (click)="handleClick($event)" />
         </div>
 
         <div>
           <label for="navigation">Navigation Included</label>
-          <input
-            type="checkbox"
-            name="hasNavigation"
-            id="navigation"
-            (click)="handleClick($event)"
-          />
+          <input type="checkbox" name="hasNavigation" id="navigation" (click)="handleClick($event)" />
         </div>
 
         <div>
           <label for="heated-seats">Heated Seats</label>
-          <input
-            type="checkbox"
-            name="hasHeatedSeats"
-            id="heated-seats"
-            (click)="handleClick($event)"
-          />
+          <input type="checkbox" name="hasHeatedSeats" id="heated-seats" (click)="handleClick($event)" />
         </div>
       </span>
     </div>
     <button class="btn btn-primary pull-right" (click)="handleSearch()">
       Search
     </button>
+  </div>
+</div>
+
+<div class='container'>
+  <div class='display' *ngFor="let car of cars">
+    <h5>Year:&nbsp;</h5>
+    <span>{{car.year}}</span>
+    &nbsp;
+    <h5>Make:&nbsp;</h5>
+    <span>{{car.make}}</span>
+    &nbsp;
+    <h5>Color:&nbsp;</h5>
+    <span>{{car.color}}</span>
   </div>
 </div>
